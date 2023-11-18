@@ -31,6 +31,28 @@ def run():
         response = stub.ListAllEmployees(EmployeeService_pb2.EmptyMessage())
         print ('All employees: ' + str(response))
 
+        #New Endpoints:
+
+        #New Endpoint 1 - Get Employees Number
+        response = stub.GetEmployeeNumber(EmployeeService_pb2.EmptyMessage())
+        print ('Employees Number: ' + str(response))
+
+        #New Endpoint 2 - Update Employee salary by Percentage
+        response = stub.UpdateEmployeeSalary(EmployeeService_pb2.EmployeeSalaryUpdate(id=301, percentage=0.1))
+        print ('Updated employee ' + response.status)
+
+        #New Endpoint 3 - Get All Employees by Salary
+        response = stub.GetAllEmployeesBySalary(EmployeeService_pb2.EmployeeSalary(salary=10000))
+        print ('All employees: ' + str(response) + " earn more than 10000")
+
+        #New Endpoint 4 - Get All Employees by Title
+        response = stub.GetAllEmployeesByTitle(EmployeeService_pb2.EmployeeTitle(title='Programmer'))
+        print ('All employees: ' + str(response) + " are programmers")
+
+        #New Endpoint 5 - Increase all employees salary by percentage
+        response = stub.IncreaseAllEmployeesSalary(EmployeeService_pb2.EmployeeSalary(salary=0.1))
+        print ('All employees salary increased by 10%')
+
 if __name__ == '__main__':
     logging.basicConfig()
     run()

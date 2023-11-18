@@ -18,13 +18,25 @@ service EmployeeService {
   rpc DeleteEmployee (EmployeeID) returns (StatusReply) {}
   // List all employees
   rpc ListAllEmployees (EmptyMessage) returns (EmployeeDataList) {}
-  
+  // New Endpoints
+  // Get number of employees
+  rpc GetEmployeesNumber (EmptyMessage) returns (EmployeesNumber) {}
+  // Update Employee salary by Percentage
+  rpc UpdateEmployeeSalary (EmployeeSalaryUpdate) returns (StatusReply) {}
+  // Get All Employees by Salary
+  rpc GetAllEmployeesBySalary (EmployeeSalary) returns (EmployeeDataList) {}
+  // Get All Employees by Title
+  rpc GetAllEmployeesByTitle (EmployeeTitle) returns (EmployeeDataList) {}
+  // Increase all employees salary by percentage
+  rpc IncreaseAllEmployeesSalary (EmployeeSalaryUpdate) returns (StatusReply) {}
+
 }
 
 message EmployeeData {
   uint32 id = 1;
   string name = 2;
   string title = 3;
+  double salary = 4;
 }
 
 message StatusReply {
@@ -45,3 +57,18 @@ message EmptyMessage{}
 message EmployeeDataList{
   repeated EmployeeData employee_data = 1;
 }
+
+message EmployeesNumber{
+  uint32 number = 1;
+}
+
+message EmployeeSalaryUpdate{
+  uint32 id = 1;
+  double percentage = 2;
+}
+
+message EmployeeSalary{
+  double salary = 1;
+}
+
+```

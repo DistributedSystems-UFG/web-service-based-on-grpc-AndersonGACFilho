@@ -71,4 +71,3 @@ message EmployeeSalary{
   double salary = 1;
 }
 
-```

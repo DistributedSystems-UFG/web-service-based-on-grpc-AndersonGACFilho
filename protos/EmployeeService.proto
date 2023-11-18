@@ -39,6 +39,10 @@ message EmployeeData {
   double salary = 4;
 }
 
+message EmployeeTitle {
+  string title = 1;
+}
+
 message StatusReply {
   string status = 1;
 }
@@ -70,4 +74,3 @@ message EmployeeSalaryUpdate{
 message EmployeeSalary{
   double salary = 1;
 }
-
